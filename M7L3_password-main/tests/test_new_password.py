@@ -8,6 +8,31 @@ def test_password_characters():
     for char in password:
         assert char in valid_characters
 
+def test_password_length():
+    password_length = 10
+    password = generate_password(password_length)
+    assert len(password) == password_length
+
+def test_password_uniqueness():
+    password1 = generate_password(10)
+    password2 = generate_password(10)
+    assert password1 != password2
+
+def test_password_empty():
+    password = generate_password(10)
+    if password == '':
+        assert False, "пароль не может быть пустым"
+    else:
+        assert True
+
+def test_password_minus_length():
+    password_length = 10
+    password = generate_password(password_length)
+    if password_length < 0:
+        assert False, "длина пароля не может быть отрицательной"
+    else:
+        assert True
+
 """
 Допиши еще один тест из предложенных. Или придумай свой.
 Если сможешь написать больше, то будет круто!
