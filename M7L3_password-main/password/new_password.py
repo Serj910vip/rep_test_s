@@ -1,4 +1,4 @@
-import random
+import secrets
 import string
 
 def generate_password(length=12):
@@ -6,9 +6,10 @@ def generate_password(length=12):
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''
     for i in range(length):
-        password += random.choice(characters)
+        password += secrets.choice(characters)
     return password
 
-# Пример использования
-password_length = 12  # Вы можете выбрать любую длину пароля
-print("Ваш новый пароль:", generate_password(password_length))
+# Пример использования — выполняется только при прямом запуске модуля
+if __name__ == "__main__":
+    password_length = 12  # Вы можете выбрать любую длину пароля
+    print("Ваш новый пароль:", generate_password(password_length))
