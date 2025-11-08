@@ -33,6 +33,13 @@ def test_password_minus_length():
     else:
         assert True
 
+def test_password_digits():
+    password = generate_password(10)
+    if any(char.isdigit() for char in password):
+        assert True
+    else:
+        assert False, "пароль должен содержать цифры"
+        
 """
 Допиши еще один тест из предложенных. Или придумай свой.
 Если сможешь написать больше, то будет круто!
